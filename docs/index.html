@@ -220,8 +220,9 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var
     <div class="hero-grid">
       <div class="hero-text">
     <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Open to Data Science, ML &amp; Data Engineering roles</span><span>· Berlin</span></div>
-    <h1>Lipsa Priyadarshinee.<br>Data you can <em>trust</em>.</h1>
-    <p class="lede">I'm a <b>Data Scientist and Machine Learning Engineer</b> with 3+ years building ML models, ETL pipelines and BI dashboards in insurance and analytics. I care about the parts that make a model usable in practice: replay-safe pipelines, honest evaluation, and dashboards people actually act on. I'm currently completing an M.Sc. in Data Science in Berlin.</p>
+    <h1>Hi, I'm <em>Lipsa</em>.</h1>
+    <p class="lede">I'm a <b>Data Scientist and Machine Learning Engineer</b> from Cuttack, Odisha. I started in insurance analytics in Mumbai, moved into machine learning engineering in Pune, and I'm now doing my M.Sc. in Data Science in Berlin.</p>
+    <p class="lede" style="margin-top:14px">I believe data science should solve real problems for real people. That's why I build things like flood early-warning tools for my home state, alongside the pipelines and dashboards that businesses rely on every day.</p>
     <div class="hero-actions">
       <a class="btn" href="#projects">See projects</a>
       <a class="btn ghost" href="https://github.com/lipsapriyadarsinee101-oss" target="_blank" rel="noopener">GitHub ↗</a>
@@ -269,10 +270,10 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var
   </section>
 
   <section id="tools" class="wrap">
-    <div class="sec-head"><h2>Advanced tools</h2><p>Every tool here is used in at least one public repo. The number shows how many. Click a tool to see those projects.</p></div>
+    <div class="sec-head"><h2>Advanced tools</h2><p>The tools I use in my projects. The number shows how many projects use each one. Click a tool to see them.</p></div>
     <div class="toolwall" id="toolwall"></div>
     <div class="next">
-      <div class="next-head"><h3>Building next</h3><p>Skills I'm adding through new projects now. Each one moves into the list above once it ships in a public repo.</p></div>
+      <div class="next-head"><h3>Currently learning</h3><p>I'm building new projects with these right now.</p></div>
       <div class="next-grid">
         <div><b>GCP data platform</b><div class="tlist"><span class="plan">BigQuery</span><span class="plan">dbt on BigQuery</span><span class="plan">Cloud Storage</span><span class="plan">Pub/Sub</span><span class="plan">Airflow</span><span class="plan">Terraform on GCP</span><span class="plan">Alerting</span></div></div>
         <div><b>Production LLM apps</b><div class="tlist"><span class="plan">Chroma vector store</span><span class="plan">Conversation memory</span><span class="plan">Per-query cost tracking</span><span class="plan">Online evaluation from user feedback</span><span class="plan">Quality dashboard</span><span class="plan">MCP servers</span></div></div>
@@ -281,7 +282,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var
   </section>
 
   <section id="experience" class="wrap">
-    <div class="sec-head"><h2>Experience</h2><p>From insurance BI to ML engineering, with a focus on measurable results.</p></div>
+    <div class="sec-head"><h2>Experience</h2><p>Insurance analytics in Mumbai, ML engineering in Pune, and now Berlin.</p></div>
     <div class="xp">
       <article class="job">
         <div class="when">08/2024 – 03/2026</div>
@@ -357,7 +358,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var
   <section id="contact" class="wrap">
     <div class="contact">
       <div>
-        <h2>Let's talk data.</h2>
+        <h2>Get in touch</h2>
         <p>I'm looking for Data Science, Machine Learning and Data Engineering roles in Berlin. My student permit allows 20 h/week during lectures and full-time work in semester breaks.</p>
       </div>
       <div class="rows">
@@ -377,10 +378,10 @@ const GH="https://github.com/lipsapriyadarsinee101-oss/";
 const P=[
  {t:"CreditFlow Data Platform",a:["de"],f:1,k:"Data engineering",r:"creditflow-data-platform",
   d:"A lending-data pipeline built to stay correct when events arrive twice, arrive late or fail validation.",
-  q:"What happens when yesterday's data arrives after today's and your dashboard quietly changes?",
+  q:"My biggest takeaway: knowing how a pipeline fails, and how to rerun it safely, is part of making its data trustworthy.",
   pr:[["Replay-safe","100,000-event benchmark with zero changed records on replay"],["Deterministic ordering","Late updates can never overwrite newer versions"],["Privacy","Customer IDs pseudonymized before the silver layer"],["Verified","10 integration tests · CI on Python 3.11/3.12 + dbt"]],
   tg:["Python","SQL","dbt","Spark","Delta Lake","Databricks","Terraform","GitHub Actions"]},
- {t:"Enterprise GenAI Agent Hub",a:["genai"],f:1,k:"Multi-agent RAG",r:"enterprise-genai-agent-hub",
+ {t:"Enterprise GenAI Agent Hub",a:["genai"],f:0,k:"Multi-agent RAG",r:"enterprise-genai-agent-hub",
   d:"An explainable multi-agent RAG system for company knowledge. A router agent sends each question to policy, technical or general specialists. A synthesis agent writes a cited answer and a quality agent checks it.",
   q:"Enterprise GenAI needs more than a chatbot: grounded answers, traceable evidence, evaluation and safe failure.",
   pr:[["Agents","Router → specialists → synthesis → quality review"],["Grounded","Every answer cites its source documents"],["Observable","UI shows the agent trace, confidence and latency"],["Resilient","Deterministic fallback when no API key is set · CI"]],
@@ -399,8 +400,10 @@ const P=[
  {t:"Acquisition Analytics Platform",a:["de","analytics"],r:"acquisition-analytics-platform",
   d:"Merges ERP, CRM, time-record and Excel exports from acquired companies into one auditable lakehouse with bronze, silver and gold layers. Handles three currencies and quarantines records that fail validation.",
   tg:["SQL","DuckDB","Parquet","PySpark","Microsoft Fabric","Docker","GitHub Actions"]},
- {t:"Nepal–Odisha Flood AI Intelligence",a:["ml","climate"],r:"nepal-odisha-flood-ai-intelligence",
-  d:"Turns rainfall, river-level, satellite and geospatial data into flood-risk intelligence for early warning. I built it with my home region of Cuttack, Odisha in mind.",
+ {t:"Nepal–Odisha Flood AI Intelligence",a:["ml","climate"],f:1,k:"Close to my heart",r:"nepal-odisha-flood-ai-intelligence",
+  d:"Turns weather, river-level, satellite and geospatial data into flood-risk information that can support early warnings.",
+  q:"When I saw the floods in Nepal threatening communities in Odisha, I couldn't see them as just headlines. Technology can't stop the rain, but it can help us see danger earlier.",
+  pr:[["Why","Built for communities like my hometown, Cuttack"],["Inputs","Rainfall, river levels, satellite and geospatial data"],["Goal","Find vulnerable areas early and support faster emergency decisions"]],
   tg:["Python","Machine learning","Geospatial"]},
  {t:"Flight Demand Forecasting",a:["ml"],r:"flight-demand-forecasting",
   d:"Forecasts next-day bookings per route (BER-LHR, BER-PMI, FRA-JFK) and serves predictions over an HTTP API. On the synthetic holdout, MAE is 31% lower than a same-weekday baseline.",
