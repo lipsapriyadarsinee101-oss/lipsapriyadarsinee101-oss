@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lipsa Priyadarshinee</title>
+<meta name="description" content="Lipsa Priyadarshinee: Data Scientist and ML Engineer in Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta property="og:title" content="Lipsa Priyadarshinee · Data Scientist & ML Engineer">
+<meta property="og:description" content="Data Scientist and ML Engineer in Berlin. 20 open-source projects in ML, GenAI agents and data engineering.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B5E7A'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+<style>
+html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: a single reading column with a monospaced "pipeline" rail. Each section is a stage in one data flow: profile → projects → experience → skills → contact */
+:root{
+  --bg:#F2F4F3;
+  --surface:#FFFFFF;
+  --ink:#14212B;
+  --muted:#5A6873;
+  --line:#D5DCDD;
+  --accent:#1B5E7A;      /* river teal */
+  --accent-soft:#DCEBEF;
+  --warm:#C7742A;        /* saffron, used sparingly */
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F171C; --surface:#16222A; --ink:#E6EDEF; --muted:#94A4AD; --line:#2A3A44;
+    --accent:#6DB8D6; --accent-soft:#1C3440; --warm:#E3A25E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F171C; --surface:#16222A; --ink:#E6EDEF; --muted:#94A4AD; --line:#2A3A44;
+  --accent:#6DB8D6; --accent-soft:#1C3440; --warm:#E3A25E; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+nav.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.mark span{color:var(--accent)}
+nav.top ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:14px}
+nav.top ul a{color:var(--muted);text-decoration:none}
+nav.top ul a:hover{color:var(--ink)}
+@media (max-width:620px){nav.top ul{gap:14px} nav.top ul li.hide-sm{display:none}}
+
+/* hero */
+.hero{padding-block:72px 56px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#2E9E6A;box-shadow:0 0 0 4px color-mix(in srgb,#2E9E6A 22%,transparent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,92px);line-height:.95;letter-spacing:-.035em;margin:20px 0 22px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(18px,2.2vw,21px);max-width:62ch;color:var(--ink);margin:0}
+.lede b{font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px var(--body);padding:11px 18px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+
+/* pipeline: career as stages */
+.pipeline{margin-top:52px;border-top:1px solid var(--line);padding-top:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.stage{position:relative;padding:0 14px 0 0}
+.stage::before{content:"";display:block;height:3px;background:var(--line);margin-bottom:14px}
+.stage.now::before{background:var(--accent)}
+.stage .yr{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.stage .role{font-weight:600;font-size:15px;line-height:1.35;margin-top:4px}
+.stage .org{font-size:14px;color:var(--muted)}
+@media (max-width:720px){.pipeline{grid-template-columns:1fr 1fr;row-gap:22px}}
+
+/* sections */
+section{padding-block:64px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-bottom:28px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,44px);letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:balance}
+.sec-head p{margin:0;color:var(--muted);max-width:46ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat{background:var(--surface);padding:22px 20px}
+.stat .n{font-family:var(--display);font-weight:700;font-size:38px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .n small{font-size:20px;color:var(--accent)}
+.stat .l{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.4}
+@media (max-width:720px){.stats{grid-template-columns:1fr 1fr}}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px var(--mono);padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* featured */
+.featured{display:grid;gap:18px;margin-bottom:18px}
+.feat{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.feat .kicker{font-family:var(--mono);font-size:12px;color:var(--warm);letter-spacing:.06em;text-transform:uppercase}
+.feat h3{font-family:var(--display);font-size:28px;letter-spacing:-.02em;line-height:1.1;margin:8px 0 10px}
+.feat p{margin:0 0 14px;color:var(--ink)}
+.feat .q{color:var(--muted);font-style:italic}
+.proof{list-style:none;margin:0;padding:0;display:grid;gap:10px;align-content:start}
+.proof li{border-left:2px solid var(--accent);padding:2px 0 2px 12px;font-size:15px}
+.proof li b{font-family:var(--mono);font-weight:500;color:var(--accent);display:block;font-size:13px}
+@media (max-width:760px){.feat{grid-template-columns:1fr;padding:22px}}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:920px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;transition:border-color .2s, transform .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card h3{font-family:var(--display);font-size:20px;letter-spacing:-.015em;line-height:1.2;margin:0}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font:400 12px var(--mono);padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.link{font:500 14px var(--body);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.link:hover{text-decoration:underline}
+.area{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.empty{color:var(--muted);font-family:var(--mono);font-size:14px}
+
+/* experience */
+.xp{display:grid;gap:0;border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding-block:26px;border-bottom:1px solid var(--line)}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:4px}
+.job h3{font-family:var(--display);font-size:22px;letter-spacing:-.015em;margin:0;line-height:1.2}
+.job .at{color:var(--muted);font-size:15px;margin:2px 0 10px}
+.job ul{margin:0;padding-left:18px;display:grid;gap:5px;max-width:70ch}
+.job li::marker{color:var(--accent)}
+.hl{font-family:var(--mono);font-size:.92em;background:var(--accent-soft);color:var(--accent);padding:0 5px;border-radius:4px;white-space:nowrap}
+@media (max-width:640px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.skill{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:14px;border-bottom:1px solid var(--line)}
+.skill dt{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:2px}
+.skill dd{margin:0;font-size:15px}
+@media (max-width:760px){.skills{grid-template-columns:1fr}}
+@media (max-width:420px){.skill{grid-template-columns:1fr;gap:4px}}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+.edu div{border-top:3px solid var(--line);padding-top:14px}
+.edu div:first-child{border-top-color:var(--accent)}
+.edu .yr{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.edu b{display:block;font-weight:600;margin:4px 0 2px}
+.edu span{color:var(--muted);font-size:14px}
+@media (max-width:720px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:44px clamp(22px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end}
+.contact h2{color:var(--bg)}
+.contact p{color:color-mix(in srgb,var(--bg) 75%,var(--ink));margin:14px 0 0;max-width:48ch}
+.contact .rows{display:grid;gap:12px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid color-mix(in srgb,var(--bg) 25%,var(--ink));border-radius:12px;padding:12px 14px;min-width:0}
+.crow .k{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:color-mix(in srgb,var(--bg) 60%,var(--ink))}
+.crow .v{font-size:15px;color:var(--bg);overflow-wrap:anywhere;user-select:all}
+.crow a.v{text-decoration:none}
+.crow a.v:hover{text-decoration:underline}
+.copy{font:500 13px var(--body);background:var(--bg);color:var(--ink);border:0;border-radius:999px;padding:7px 12px;cursor:pointer;flex-shrink:0}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+/* building next */
+.next{margin-top:18px;border:1px dashed var(--muted);border-radius:14px;padding:22px}
+.next-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:16px}
+.next-head h3{font:500 12px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--warm);margin:0}
+.next-head p{margin:0;color:var(--muted);font-size:14px;max-width:60ch}
+.next-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.next-grid b{display:block;font-weight:600;font-size:15px;margin-bottom:10px}
+@media (max-width:700px){.next-grid{grid-template-columns:1fr}}
+.plan{font:500 13px var(--body);padding:6px 11px;border-radius:8px;border:1px dashed var(--line);color:var(--muted)}
+/* portrait */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center}
+.portrait{margin:0;position:relative}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;background:var(--accent-soft)}
+.portrait::after{content:"";position:absolute;inset:12px -12px -12px 12px;border:1.5px solid var(--accent);border-radius:18px;z-index:-1}
+.portrait figcaption{font:400 12px var(--mono);color:var(--muted);margin-top:22px;letter-spacing:.04em}
+.hero-grid h1{font-size:clamp(42px,6.2vw,80px)}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;gap:28px}.portrait{order:-1;width:min(220px,60%)}.portrait figcaption{display:none}}
+/* tool wall */
+.toolwall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:920px){.toolwall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.toolwall{grid-template-columns:1fr}}
+.tgroup{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.tgroup h3{font:500 12px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--warm);margin:0 0 12px}
+.tlist{display:flex;flex-wrap:wrap;gap:8px}
+.tool{display:inline-flex;align-items:center;gap:8px;font:500 14px var(--body);padding:6px 6px 6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.tool:hover{border-color:var(--accent);color:var(--accent)}
+.tool .c{font:500 12px var(--mono);background:var(--accent-soft);color:var(--accent);border-radius:5px;padding:1px 6px;font-variant-numeric:tabular-nums}
+.toolnote{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-size:15px;color:var(--muted)}
+.toolnote b{color:var(--ink)}
+.tag{cursor:pointer;border:0;font:400 12px var(--mono)}
+.tag:hover{text-decoration:underline}
+footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">Lipsa<span>.</span></a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li class="hide-sm"><a href="#tools">Tools</a></li>
+      <li class="hide-sm"><a href="https://github.com/lipsapriyadarsinee101-oss" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Open to Data Science, ML &amp; Data Engineering roles</span><span>· Berlin</span></div>
+    <h1>Lipsa Priyadarshinee.<br>Data you can <em>trust</em>.</h1>
+    <p class="lede">I'm a <b>Data Scientist and Machine Learning Engineer</b> with 3+ years building ML models, ETL pipelines and BI dashboards in insurance and analytics. I care about the parts that make a model usable in practice: replay-safe pipelines, honest evaluation, and dashboards people actually act on. I'm currently completing an M.Sc. in Data Science in Berlin.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#projects">See projects</a>
+      <a class="btn ghost" href="https://github.com/lipsapriyadarsinee101-oss" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/lipsa101" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+
+      </div>
+      <figure class="portrait"><img src="photo.jpg" alt="Portrait of Lipsa Priyadarshinee" width="640" height="800"></figure>
+    </div>
+
+    <div class="pipeline" aria-label="Career path">
+      <div class="stage"><div class="yr">2016 – 2022</div><div class="role">B.Tech CS · MBA IT</div><div class="org">GITAM Bhubaneswar · Symbiosis</div></div>
+      <div class="stage"><div class="yr">2022 – 2023</div><div class="role">Business Intelligence Analyst</div><div class="org">Edelweiss Tokio Life Insurance</div></div>
+      <div class="stage"><div class="yr">2024 – 2026</div><div class="role">Machine Learning Engineer</div><div class="org">Caplex, Pune</div></div>
+      <div class="stage now"><div class="yr">2025 – now</div><div class="role">M.Sc. Data Science</div><div class="org">GISMA University, Germany</div></div>
+    </div>
+  </header>
+
+  <section class="wrap" aria-label="Impact in numbers" style="padding-block:0 24px">
+    <div class="stats">
+      <div class="stat"><div class="n">53<small>%</small></div><div class="l">less reporting redundancy after merging 50+ reports into Power BI</div></div>
+      <div class="stat"><div class="n">+14<small>%</small></div><div class="l">policy persistency supported by KPI dashboards</div></div>
+      <div class="stat"><div class="n">30<small>%</small></div><div class="l">faster ETL processing across 50K+ records</div></div>
+      <div class="stat"><div class="n" id="proj-count">20</div><div class="l">open-source projects on GitHub</div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <div class="sec-head">
+      <h2>Projects</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="chip" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" id="f-genai" data-f="genai" aria-pressed="false">GenAI &amp; Agents</button>
+        <button class="chip" id="f-de" data-f="de" aria-pressed="false">Data Engineering</button>
+        <button class="chip" id="f-ml" data-f="ml" aria-pressed="false">ML &amp; AI</button>
+        <button class="chip" id="f-climate" data-f="climate" aria-pressed="false">ClimateTech</button>
+        <button class="chip" id="f-analytics" data-f="analytics" aria-pressed="false">Analytics</button>
+      </div>
+    </div>
+
+    <div class="toolnote" id="toolnote" hidden>Projects using <b id="toolname"></b> <button class="chip" id="clear-tool" type="button">Clear ✕</button></div>
+    <div class="featured" id="featured"></div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>No projects in this filter.</p>
+  </section>
+
+  <section id="tools" class="wrap">
+    <div class="sec-head"><h2>Advanced tools</h2><p>Every tool here is used in at least one public repo. The number shows how many. Click a tool to see those projects.</p></div>
+    <div class="toolwall" id="toolwall"></div>
+    <div class="next">
+      <div class="next-head"><h3>Building next</h3><p>Skills I'm adding through new projects now. Each one moves into the list above once it ships in a public repo.</p></div>
+      <div class="next-grid">
+        <div><b>GCP data platform</b><div class="tlist"><span class="plan">BigQuery</span><span class="plan">dbt on BigQuery</span><span class="plan">Cloud Storage</span><span class="plan">Pub/Sub</span><span class="plan">Airflow</span><span class="plan">Terraform on GCP</span><span class="plan">Alerting</span></div></div>
+        <div><b>Production LLM apps</b><div class="tlist"><span class="plan">Chroma vector store</span><span class="plan">Conversation memory</span><span class="plan">Per-query cost tracking</span><span class="plan">Online evaluation from user feedback</span><span class="plan">Quality dashboard</span><span class="plan">MCP servers</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap">
+    <div class="sec-head"><h2>Experience</h2><p>From insurance BI to ML engineering, with a focus on measurable results.</p></div>
+    <div class="xp">
+      <article class="job">
+        <div class="when">08/2024 – 03/2026</div>
+        <div>
+          <h3>Machine Learning Engineer</h3>
+          <div class="at">Caplex · Pune, India</div>
+          <ul>
+            <li>Built and evaluated ML and deep learning models (scikit-learn, TensorFlow, PyTorch) for forecasting, trend analysis and predictive reporting.</li>
+            <li>Engineered ETL pipelines in Python, SQL, AWS and Azure, cutting processing time by <span class="hl">30%</span> across <span class="hl">50K+</span> records.</li>
+            <li>Automated ingestion, validation and monitoring; set up CI/CD, Docker environments and Git-based MLOps.</li>
+            <li>Developed API-driven data ingestion with FastAPI and REST APIs.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">07/2022 – 10/2023</div>
+        <div>
+          <h3>Business Intelligence Analyst</h3>
+          <div class="at">Edelweiss Tokio Life Insurance · Mumbai, India</div>
+          <ul>
+            <li>Consolidated <span class="hl">50+</span> reports into one Power BI environment, reducing redundancy by <span class="hl">53%</span>.</li>
+            <li>Built KPI dashboards (Power BI, SQL, Python) that contributed to <span class="hl">+7%</span> renewals and <span class="hl">+14%</span> policy persistency.</li>
+            <li>Translated business requirements into technical specifications for 20+ insurance products.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">07/2026</div>
+        <div>
+          <h3>Consulting &amp; AI Intern</h3>
+          <div class="at">Springpod micro-internship with GISMA · Remote</div>
+          <ul>
+            <li>Prioritized AI use cases across customer engagement, operations and decision-making through market and competitive research.</li>
+            <li>Built an 18-month AI transformation roadmap (Foundation, Pilots, Scale) with ROI and break-even estimates. Presentation scored <span class="hl">82/100</span> by industry assessors.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">2021 – 2023</div>
+        <div>
+          <h3>Earlier roles</h3>
+          <div class="at">Corizo · Yoshop · Coding Ninjas</div>
+          <ul>
+            <li><b>Data Science Intern, Corizo:</b> automated ETL pipelines that cut manual effort by 40%. Named Top Performer of the cohort.</li>
+            <li><b>Data Analytics Intern, Yoshop:</b> shipped 6+ Power BI dashboards and integrated 8+ data sources.</li>
+            <li><b>Teaching Assistant, Coding Ninjas:</b> mentored 100+ students in Python and DSA. Named Top Performer among 100+ TAs.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <div class="sec-head"><h2>Toolkit</h2></div>
+    <dl class="skills">
+      <div class="skill"><dt>Programming</dt><dd>Python (pandas, NumPy), SQL, HTML/CSS</dd></div>
+      <div class="skill"><dt>AI coding tools</dt><dd>Claude Code, OpenAI Codex</dd></div>
+      <div class="skill"><dt>Machine learning</dt><dd>scikit-learn, TensorFlow, Keras, PyTorch, feature engineering, causal analysis</dd></div>
+      <div class="skill"><dt>Data engineering</dt><dd>ETL, dbt, Spark/Delta Lake, Databricks, data modeling, FastAPI, REST</dd></div>
+      <div class="skill"><dt>MLOps</dt><dd>Docker, GitHub Actions CI/CD, Terraform, Kubernetes, Git</dd></div>
+      <div class="skill"><dt>Cloud &amp; DBs</dt><dd>AWS (S3, EC2), Azure, PostgreSQL, MySQL, SQL Server, MongoDB</dd></div>
+      <div class="skill"><dt>BI &amp; viz</dt><dd>Power BI, Power Query, Tableau, Excel, Streamlit, Plotly, Matplotlib</dd></div>
+      <div class="skill"><dt>GenAI</dt><dd>RAG with citations, LLM gateways, evaluation &amp; monitoring</dd></div>
+      <div class="skill"><dt>Languages</dt><dd>English: full professional · German: A2.1</dd></div>
+    </dl>
+    <div class="edu">
+      <div><div class="yr">2025 – present</div><b>M.Sc. Data Science</b><span>GISMA University of Applied Sciences, Germany</span></div>
+      <div><div class="yr">2020 – 2022</div><b>MBA Information Technology</b><span>Symbiosis Institute of Computer Studies &amp; Research</span></div>
+      <div><div class="yr">2016 – 2020</div><b>B.Tech. Computer Science</b><span>Gandhi Institute of Technology and Management, Bhubaneswar</span></div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's talk data.</h2>
+        <p>I'm looking for Data Science, Machine Learning and Data Engineering roles in Berlin. My student permit allows 20 h/week during lectures and full-time work in semester breaks.</p>
+      </div>
+      <div class="rows">
+        <div class="crow"><div style="min-width:0"><div class="k">Email</div><div class="v" id="email">lipsapriyadarsinee101@gmail.com</div></div><button class="copy" id="copy-email" type="button">Copy</button></div>
+        <div class="crow"><div style="min-width:0"><div class="k">GitHub</div><a class="v" href="https://github.com/lipsapriyadarsinee101-oss" target="_blank" rel="noopener">github.com/lipsapriyadarsinee101-oss ↗</a></div></div>
+        <div class="crow"><div style="min-width:0"><div class="k">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/lipsa101" target="_blank" rel="noopener">linkedin.com/in/lipsa101 ↗</a></div></div>
+        <div class="crow"><div style="min-width:0"><div class="k">Based in</div><div class="v">Berlin-Charlottenburg, Germany</div></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap"><span>© 2026 Lipsa Priyadarshinee</span><span>Python · SQL · Power BI · ML</span></footer>
+
+<script>
+const GH="https://github.com/lipsapriyadarsinee101-oss/";
+const P=[
+ {t:"CreditFlow Data Platform",a:["de"],f:1,k:"Data engineering",r:"creditflow-data-platform",
+  d:"A lending-data pipeline built to stay correct when events arrive twice, arrive late or fail validation.",
+  q:"What happens when yesterday's data arrives after today's and your dashboard quietly changes?",
+  pr:[["Replay-safe","100,000-event benchmark with zero changed records on replay"],["Deterministic ordering","Late updates can never overwrite newer versions"],["Privacy","Customer IDs pseudonymized before the silver layer"],["Verified","10 integration tests · CI on Python 3.11/3.12 + dbt"]],
+  tg:["Python","SQL","dbt","Spark","Delta Lake","Databricks","Terraform","GitHub Actions"]},
+ {t:"Enterprise GenAI Agent Hub",a:["genai"],f:1,k:"Multi-agent RAG",r:"enterprise-genai-agent-hub",
+  d:"An explainable multi-agent RAG system for company knowledge. A router agent sends each question to policy, technical or general specialists. A synthesis agent writes a cited answer and a quality agent checks it.",
+  q:"Enterprise GenAI needs more than a chatbot: grounded answers, traceable evidence, evaluation and safe failure.",
+  pr:[["Agents","Router → specialists → synthesis → quality review"],["Grounded","Every answer cites its source documents"],["Observable","UI shows the agent trace, confidence and latency"],["Resilient","Deterministic fallback when no API key is set · CI"]],
+  tg:["Multi-agent","RAG","OpenAI API","FastAPI","Pydantic","Streamlit","Docker","GitHub Actions"]},
+ {t:"Insurance Claims Review Workbench",a:["ml","analytics"],f:1,k:"Document AI",r:"insurance-employee-check-documets-",
+  d:"Compares a policy schedule, claim form and repair invoice, then flags inconsistent IDs, dates, amounts and invoice arithmetic, with page-level evidence.",
+  q:"Document consistency is not a coverage decision. The tool supports human review; it doesn't approve or reject claims.",
+  pr:[["Evidence","Every extracted field links to its source page"],["No guessing","Missing information is flagged, never filled in"],["Audit trail","Reviewer corrections, notes and history saved"],["Verified","43 passing tests · GitHub CI"]],
+  tg:["Python","FastAPI","Streamlit","SQLite","pypdf","GitHub Actions"]},
+ {t:"AgenticAI Hub",a:["genai"],r:"AgenticAI-Hub",
+  d:"A local-first research assistant. It retrieves evidence, drafts a brief, has specialist agents review it, and logs every run. Covers ReAct tool calling, typed graph state and crew-style agents.",
+  tg:["LangChain","LangGraph","CrewAI","Ollama","Langfuse","Python","Docker"]},
+ {t:"Subscription Churn Risk Intelligence",a:["ml","de"],r:"subscription-churn-risk-intelligence",
+  d:"Predicts cancellations with calibrated probabilities and a leakage-aware time split, estimates CLV, and exports risk cohorts with recommended actions to a CDP and Power BI.",
+  tg:["Snowflake","Snowpark","scikit-learn","FastAPI","Azure","Power BI","Docker","GitHub Actions"]},
+ {t:"Acquisition Analytics Platform",a:["de","analytics"],r:"acquisition-analytics-platform",
+  d:"Merges ERP, CRM, time-record and Excel exports from acquired companies into one auditable lakehouse with bronze, silver and gold layers. Handles three currencies and quarantines records that fail validation.",
+  tg:["SQL","DuckDB","Parquet","PySpark","Microsoft Fabric","Docker","GitHub Actions"]},
+ {t:"Nepal–Odisha Flood AI Intelligence",a:["ml","climate"],r:"nepal-odisha-flood-ai-intelligence",
+  d:"Turns rainfall, river-level, satellite and geospatial data into flood-risk intelligence for early warning. I built it with my home region of Cuttack, Odisha in mind.",
+  tg:["Python","Machine learning","Geospatial"]},
+ {t:"Flight Demand Forecasting",a:["ml"],r:"flight-demand-forecasting",
+  d:"Forecasts next-day bookings per route (BER-LHR, BER-PMI, FRA-JFK) and serves predictions over an HTTP API. On the synthetic holdout, MAE is 31% lower than a same-weekday baseline.",
+  tg:["Python","NumPy","Forecasting","REST API"]},
+ {t:"Forensic Data Analytics",a:["analytics"],r:"forensic-data-analytics",
+  d:"Screens ERP payments for duplicate invoices, split payments, self-approval and outliers (robust z-score), then ranks cases for review from 0 to 100 with stated reasons.",
+  tg:["SQL","Python","Anomaly detection","Power BI"]},
+ {t:"Gene Perturbation Predictor",a:["ml"],r:"gene-perturbation-predictor",
+  d:"Predicts gene-expression shifts after knockouts and CRISPRi-style knockdowns, trained on synthetic causal gene networks and tested on context-disjoint splits.",
+  tg:["Python","Causal ML","GitHub Actions"]},
+ {t:"Climate AI Operations Platform",a:["genai","climate","de"],r:"climate-ai-operations-platform",
+  d:"Home-energy analytics, invoice-approval automation with idempotency, a multi-provider LLM gateway with fallback, and cited RAG answers.",
+  tg:["RAG","LLM gateway","FastAPI","Docker","Kubernetes","Terraform","GitHub Actions"]},
+ {t:"Pharma AI Commercial Accelerator",a:["ml","analytics"],r:"pharma-ai-commercial-accelerator",
+  d:"Ranks market, brand and channel combinations by ROI, HCP engagement and compliance. A random forest predicts incremental sales, and scenario budgets need human approval.",
+  tg:["scikit-learn","Random Forest","Streamlit","Plotly"]},
+ {t:"Industrial Decarbonization Optimizer",a:["climate","analytics"],r:"industrial-decarbonization-ai",
+  d:"Optimizes carbon-reduction investments under budget, risk and carbon-price scenarios, then produces a 90-day executive roadmap.",
+  tg:["Python","Optimization","Streamlit","Plotly","Pytest"]},
+ {t:"German AI Job Market Intelligence",a:["analytics"],r:"german-ai-job-market-intelligence",
+  d:"Pulls live German job postings from the Arbeitnow API and maps demand by city, role, language and skill. Includes a personal job-fit scorer.",
+  tg:["pandas","Streamlit","Plotly","REST API"]},
+ {t:"AI Growth & Personalization Platform",a:["ml","analytics"],r:"ai-growth-personalization-platform",
+  d:"Churn prediction, recommendations and causal campaign-impact measurement, served through Streamlit and a FastAPI service.",
+  tg:["scikit-learn","Causal inference","FastAPI","Streamlit","Docker","GitHub Actions"]},
+ {t:"SolarLoop AI",a:["climate","ml"],r:"solarloop-ai-circular-energy-intelligence",
+  d:"Circular-energy intelligence connecting plastic recycling with solar generation. It measures material recovery, energy use, cost and CO₂ reduction.",
+  tg:["Python","Machine learning"]},
+ {t:"Growth Data Product Intelligence",a:["analytics","ml"],r:"growth-data-product-intelligence",
+  d:"Marketing data science for a travel marketplace: multi-touch attribution, CLV prediction, A/B uplift and budget optimization.",
+  tg:["Python","A/B testing","Streamlit","Docker","GitHub Actions"]},
+ {t:"German AI Market Intelligence",a:["analytics"],r:"German-AI-Market-Intelligence-project",
+  d:"A digital twin of Germany's AI readiness with explainable sector scoring, evidence-confidence labels and EU AI Act screening.",
+  tg:["pandas","Streamlit","Plotly","Pytest","Docker"]},
+ {t:"German Innovation & AI Platform",a:["analytics","de"],r:"german-innovation-ai-intelligence",
+  d:"Searchable profiles of German tech companies, with source and verification tracking on every record.",
+  tg:["pandas","Streamlit","Plotly"]},
+ {t:"Classifier Comparison: UCI Adult",a:["ml"],r:"ML-Supervised-Learning",
+  d:"Five classic classifiers compared before and after tuning, using SMOTE on the training set only. Decision Tree AUC rose from 0.74 to 0.87.",
+  tg:["scikit-learn","GridSearchCV","SMOTE"]}
+];
+const GROUPS=[
+ ["GenAI & agents",["LangChain","LangGraph","CrewAI","Ollama","OpenAI API","RAG","Multi-agent","LLM gateway","Langfuse"]],
+ ["Data platforms",["Databricks","Spark","PySpark","Delta Lake","dbt","Snowflake","Snowpark","Microsoft Fabric","DuckDB","Parquet","SQL"]],
+ ["Machine learning",["scikit-learn","Causal ML","Causal inference","Random Forest","Forecasting","Anomaly detection","Optimization","SMOTE","GridSearchCV"]],
+ ["APIs & apps",["FastAPI","Pydantic","REST API","Streamlit","Plotly"]],
+ ["MLOps & cloud",["Docker","Kubernetes","Terraform","GitHub Actions","Azure","Pytest"]],
+ ["BI & analytics",["Power BI","pandas","NumPy","A/B testing"]]
+];
+const names={genai:"GenAI & Agents",de:"Data Engineering",ml:"ML & AI",climate:"ClimateTech",analytics:"Analytics"};
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tags=p=>`<div class="tags">${p.tg.map(x=>`<button type="button" class="tag" data-tool="${esc(x)}">${esc(x)}</button>`).join("")}</div>`;
+let area="all", tool=null;
+function render(){
+  const show=P.filter(p=>(area==="all"||p.a.includes(area))&&(!tool||p.tg.includes(tool)));
+  const feat=show.filter(p=>p.f), rest=show.filter(p=>!p.f);
+  document.getElementById("featured").innerHTML=feat.map(p=>`
+   <article class="feat"><div>
+     <div class="kicker">Featured · ${esc(p.k)}</div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>
+     <p class="q">${esc(p.q)}</p>${tags(p)}
+     <p style="margin-top:14px"><a class="link" href="${GH+p.r}" target="_blank" rel="noopener">View on GitHub ↗</a></p>
+   </div><ul class="proof">${p.pr.map(([b,t])=>`<li><b>${esc(b)}</b>${esc(t)}</li>`).join("")}</ul></article>`).join("");
+  document.getElementById("grid").innerHTML=rest.map(p=>`
+   <article class="card"><div class="area">${p.a.map(a=>names[a]).join(" · ")}</div>
+     <h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>${tags(p)}
+     <a class="link" href="${GH+p.r}" target="_blank" rel="noopener">GitHub ↗</a></article>`).join("");
+  document.getElementById("empty").hidden=show.length>0;
+  document.getElementById("toolnote").hidden=!tool;
+  document.getElementById("toolname").textContent=tool||"";
+}
+function pickTool(t){
+  tool=t; area="all";
+  document.querySelectorAll(".chip[data-f]").forEach(c=>c.setAttribute("aria-pressed",c.dataset.f==="all"));
+  render(); document.getElementById("projects").scrollIntoView();
+}
+document.querySelectorAll(".chip[data-f]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".chip[data-f]").forEach(c=>c.setAttribute("aria-pressed",c===b));
+  area=b.dataset.f; render();
+}));
+document.getElementById("clear-tool").addEventListener("click",()=>{tool=null;render()});
+document.addEventListener("click",e=>{const t=e.target.closest("[data-tool]"); if(t) pickTool(t.dataset.tool);});
+const count=t=>P.filter(p=>p.tg.includes(t)).length;
+document.getElementById("toolwall").innerHTML=GROUPS.map(([g,ts])=>`
+  <div class="tgroup"><h3>${esc(g)}</h3><div class="tlist">${ts.filter(t=>count(t)).map(t=>`<button type="button" class="tool" data-tool="${esc(t)}">${esc(t)}<span class="c">${count(t)}</span></button>`).join("")}</div></div>`).join("");
+document.getElementById("proj-count").textContent=P.length;
+render();
+const cb=document.getElementById("copy-email");
+cb.addEventListener("click",()=>{
+  const v=document.getElementById("email").textContent;
+  const done=()=>{cb.textContent="Copied";setTimeout(()=>cb.textContent="Copy",1600)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent="Selected"};
+  try{navigator.clipboard.writeText(v).then(done,fallback)}catch(e){fallback()}
+});
+</script>
+</body>
+</html>
