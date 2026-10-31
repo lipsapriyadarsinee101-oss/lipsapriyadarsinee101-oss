@@ -340,6 +340,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;font-family:var
     <dl class="skills">
       <div class="skill"><dt>Programming</dt><dd>Python (pandas, NumPy), SQL, HTML/CSS</dd></div>
       <div class="skill"><dt>AI coding tools</dt><dd>Claude Code, OpenAI Codex</dd></div>
+      <div class="skill"><dt>Dev tools</dt><dd>Visual Studio Code, Google Colab, Jupyter Notebook, JIRA</dd></div>
       <div class="skill"><dt>Machine learning</dt><dd>scikit-learn, TensorFlow, Keras, PyTorch, feature engineering, causal analysis</dd></div>
       <div class="skill"><dt>Data engineering</dt><dd>ETL, dbt, Spark/Delta Lake, Databricks, data modeling, FastAPI, REST</dd></div>
       <div class="skill"><dt>MLOps</dt><dd>Docker, GitHub Actions CI/CD, Terraform, Kubernetes, Git</dd></div>
@@ -451,7 +452,8 @@ const GROUPS=[
  ["Machine learning",["scikit-learn","Causal ML","Causal inference","Random Forest","Forecasting","Anomaly detection","Optimization","SMOTE","GridSearchCV"]],
  ["APIs & apps",["FastAPI","Pydantic","REST API","Streamlit","Plotly"]],
  ["MLOps & cloud",["Docker","Kubernetes","Terraform","GitHub Actions","Azure","Pytest"]],
- ["BI & analytics",["Power BI","pandas","NumPy","A/B testing"]]
+ ["BI & analytics",["Power BI","pandas","NumPy","A/B testing"]],
+ ["Dev tools",["Visual Studio Code","Google Colab","Jupyter Notebook","Claude Code","OpenAI Codex"]]
 ];
 const names={genai:"GenAI & Agents",de:"Data Engineering",ml:"ML & AI",climate:"ClimateTech",analytics:"Analytics"};
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -487,7 +489,7 @@ document.getElementById("clear-tool").addEventListener("click",()=>{tool=null;re
 document.addEventListener("click",e=>{const t=e.target.closest("[data-tool]"); if(t) pickTool(t.dataset.tool);});
 const count=t=>P.filter(p=>p.tg.includes(t)).length;
 document.getElementById("toolwall").innerHTML=GROUPS.map(([g,ts])=>`
-  <div class="tgroup"><h3>${esc(g)}</h3><div class="tlist">${ts.filter(t=>count(t)).map(t=>`<button type="button" class="tool" data-tool="${esc(t)}">${esc(t)}<span class="c">${count(t)}</span></button>`).join("")}</div></div>`).join("");
+  <div class="tgroup"><h3>${esc(g)}</h3><div class="tlist">${ts.map(t=>count(t)?`<button type="button" class="tool" data-tool="${esc(t)}">${esc(t)}<span class="c">${count(t)}</span></button>`:`<span class="tool" style="cursor:default;padding-right:12px">${esc(t)}</span>`).join("")}</div></div>`).join("");
 document.getElementById("proj-count").textContent=P.length;
 render();
 const cb=document.getElementById("copy-email");
